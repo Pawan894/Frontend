@@ -1,0 +1,29 @@
+<table mat-table
+[dataSource]="roles">
+<ng-container
+matColumnDef="roleName">
+<th mat-header-cell
+*matHeaderCellDef>Role Name</th>
+<td mat-cell *matCellDef="let role">{{role.name}}</td>
+</ng-container>
+
+<ng-container
+matColumnDef="permissions">
+<th mat-header-cell
+*matHeaderCellDef>Permissions</th>
+<td mat-cell *matCellDef="let role">{{role.permissions joinPermissions}}</td>
+</ng-container>
+
+<ng-container
+matColumnDef="actions">
+<th mat-header-cell *mathHeaderCellDef>Actions</th>
+<td mat-cell *matCellDef="let role">
+    <button mat-icon-button (click)="editRole(role)">Edit</button>
+    <button mat-icon-button (click)="deleteRole(role)">Delete</button>
+</td>
+</ng-container>
+<tr mat-header-row
+*matHeaderRowDef="displayedColumns">
+</tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,23 @@
+<mat-dialog-content>
+    <form (ngSubmit)="saveUser()">
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="user.username"
+            name="username" required>
+            </mat-form-field>
+        </mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="user.email"
+        name="email" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Roles</mat-label>
+        <mat-select
+        [(ngModel)]="user.roles"
+        name="roles" multiple>
+        <mat-option *ngFor="let role of roles" [value]="role.id">{{role.name}}</mat-option>
+    </mat-select>
+    </mat-form-field>
+    <button mat-raised-button type="submit">Save</button>
+    </form>
+</mat-dialog-content>
